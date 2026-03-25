@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль кота</title>
+    <style>
+        /* Сброс базовых отступов и настройка шрифта */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Общий фон страницы */
+        body {
+            background-color: #d1d6dc;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Главный контейнер */
+        .profile-wrapper {
+            display: flex;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* --- ЛЕВАЯ КОЛОНКА --- */
+        .left-panel {
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            /* Убрали gap отсюда, чтобы управлять отступами точнее */
+        }
+
+        /* Рамка для главной фотографии */
+        .main-photo-frame {
+            width: 100%;
+            height: 250px; 
+            border: 2px solid #000;
+            border-radius: 20px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .main-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Контейнер для кнопок, который прижимается к низу */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: auto; /* ВАЖНО: Прижимает кнопки к нижнему краю колонки */
+            padding-top: 20px; /* Задает минимальный отступ от фото сверху */
+        }
+
+        /* Стили кнопок */
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .btn-pet { background-color: #2c75b8; }
+        .btn-feed { background-color: #38a32a; }
+        .btn-scare { background-color: #c74534; }
+
+
+        /* --- ПРАВАЯ КОЛОНКА --- */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Заголовки блоков */
+        .section-header {
+            background-color: #354760;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        /* Блок с текстовой информацией */
+        .info-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .info-row:nth-child(odd) { background-color: #e2e6eb; }
+        .info-row:nth-child(even) { background-color: #d6dbe0; }
+
+        .info-label {
+            text-align: right;
+            padding-right: 30px;
+            color: #555;
+        }
+
+        .info-value {
+            text-align: left;
+            color: #000;
+        }
+
+        /* Блок с альбомами прижимается к низу */
+        .albums-section {
+            margin-top: auto; /* ВАЖНО: Прижимает альбомы к нижнему краю колонки */
+        }
+
+        .albums-gallery {
+            display: flex;
+            gap: 15px;
+        }
+
+        .album-frame {
+            flex: 1;
+            aspect-ratio: 3 / 4;
+            border: 2px solid #000;
+            border-radius: 15px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .album-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-wrapper">
+        
+        <div class="left-panel">
+            
+            <div class="main-photo-frame">
+                <img src="wanuat.jpg" alt="Главное фото кота">
+            </div>
+
+            <div class="buttons-container">
+                <button class="btn btn-pet">Погладить</button>
+                <button class="btn btn-feed">Накормить</button>
+                <button class="btn btn-scare">Напугать</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            
+            <div>
+                <div class="section-header">Общая информация</div>
+                <div class="info-block">
+                    <div class="info-row">
+                        <div class="info-label">Имя</div>
+                        <div class="info-value">Феликс</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Позывные</div>
+                        <div class="info-value">Кто порвал обои?</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Вероисповедание</div>
+                        <div class="info-value">Верю в холодильник</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Политические</div>
+                        <div class="info-value">Продам все за еду</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="albums-section">
+                <div class="section-header">Альбомы</div>
+                <div class="albums-gallery">
+                    
+                    <div class="album-frame">
+                        <img src="brikotkin.jpg" alt="Альбом 1">
+                    </div>
+                    <div class="album-frame">
+                        <img src="ww.jpg" alt="Альбом 2">
+                    </div>
+                    <div class="album-frame">
+                        <img src="zolik.jpg" alt="Альбом 3">
+                    </div>
+                    <div class="album-frame">
+                        <img src="zdun.jpg" alt="Альбом 4">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
